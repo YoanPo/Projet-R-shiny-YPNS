@@ -1,29 +1,40 @@
-1. Présentation de l’application
+## 1. Présentation de l’application
+
 Nom : Exploration DPE – ADEME
+
 Objectif : Permettre l’analyse, la visualisation et la cartographie des Diagnostics de Performance Énergétique (DPE) pour un ou plusieurs codes postaux et périodes définies.
 
 Fonctionnalités principales :
 
 1)Recherche et filtrage des DPE
+
 2)Indicateurs clés (KPI)
+
 3)Analyses statistiques
+
 4)Cartographie interactive
+
 5)Export de données et graphiques
 
 L’accès est sécurisé via identifiant et mot de passe.
 
-2. Connexion à l’application
+
+## 2. Connexion à l’application
+
 1)Ouvrir l’application Shiny.
+
 2)Sur la page de login :
   - Identifiant : admin_dpe
   - Mot de passe : rshiny1
 
 3)Cliquer sur Se connecter.
+
 4)En cas d’erreur, un message rouge s’affiche : “Identifiant ou mot de passe incorrect”.
 
 
 
-3. Page Accueil & Recherche
+## 3. Page Accueil & Recherche
+
 3.1 Paramètres de recherche :
 
   - Plage de dates : Sélectionner la période de réception des DPE
@@ -45,7 +56,8 @@ L’accès est sécurisé via identifiant et mot de passe.
 
 
 
-4. Page Analyses statistiques
+## 4. Page Analyses statistiques
+
 4.1 Visualisations :
   - Histogramme de consommation : Répartition des consommations énergétiques
   - Boxplot par étiquette DPE : Consommation par catégorie A → G
@@ -57,7 +69,7 @@ L’accès est sécurisé via identifiant et mot de passe.
 
 
 
-5. Page Cartographie :
+## 5. Page Cartographie :
   - Carte interactive avec les DPE géolocalisés
   - Popups : Numéro DPE, étiquette, consommation
   - Zoom et déplacement : Utilisez la souris pour naviguer
@@ -65,7 +77,7 @@ L’accès est sécurisé via identifiant et mot de passe.
 
 
 
-6. Page Contexte et sources
+## 6. Page Contexte et sources
   - Logo ADEME et mention des données publiques
   - Limites de l’API : 5000 DPE maximum par requête
   - Champs disponibles :
@@ -75,8 +87,11 @@ L’accès est sécurisé via identifiant et mot de passe.
 
 
 
-7. Bonnes pratiques utilisateur :
+## 7. Bonnes pratiques utilisateur :
 1)Limiter la période ou le code postal pour ne pas dépasser la limite API (5000 DPE)
+
 2)Vérifier les données manquantes : certaines valeurs peuvent être NA
+
 3)Exporter régulièrement les graphiques et données pour archivage
+
 4)Utiliser les filtres pour se concentrer sur un quartier ou une étiquette DPE spécifique
