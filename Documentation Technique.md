@@ -1,4 +1,4 @@
-1. Architecture générale
+## 1. Architecture générale
 
 L'application et les scripts R utilisent une architecture simple en 4 couches :
 
@@ -21,7 +21,7 @@ Modules analytiques :
  - Visualisation ggplot2.
  - Cartographie Leaflet + sf.
 
-2. Architecture du GitHub :
+## 2. Architecture du GitHub :
 /iut_sd2_rshiny_enedis/
 ├── Code RMarkdawn                   
 ├── Description des scripts utilisés              
@@ -31,7 +31,7 @@ Modules analytiques :
     └── schema.drawio         # Schéma architecture Draw.io
 
 
-3. Description des modules
+## 3. Description des modules
 3.1 Connexion API ADEME (REST JSON)
  - Utilise httr::GET
  - Construction dynamique des paramètres :
@@ -76,7 +76,7 @@ st_transform(4326)
 
   - Points sur carte interactive (leaflet::addCircleMarkers)
 
-4. Flux de données (pipeline) :
+## 4. Flux de données (pipeline) :
 
 1)L’utilisateur saisit les paramètres.
 2)Le backend R construit la requête API.
