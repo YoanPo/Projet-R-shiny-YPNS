@@ -1,14 +1,23 @@
-1. Chargement des bibliothèques :
+## 1. Chargement des bibliothèques :
 
 library(dplyr)   # Manipulation et nettoyage des données
+
 library(ggplot2) # Visualisations statistiques
+
 library(plotly)  # Graphiques interactifs (optionnel)
+
 library(knitr)   # Mise en forme des tableaux
+
 library(sf)      # Gestion des données géospatiales
+
 library(leaflet) # Cartographie interactive
+
 library(httr)    # Requêtes HTTP (API ADEME)
+
 library(jsonlite)# Conversion JSON → R
+
 library(scales)  # Formats et échelles (log, pourcentage, etc.)
+
 
 - Explication
 
