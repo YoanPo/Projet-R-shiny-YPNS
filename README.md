@@ -50,8 +50,6 @@ shiny::runApp("app.R")
 Accéder à l’interface via le navigateur à l’URL indiquée par RStudio.
 
  Structure du projet :
-graphql
-Copier le code
 /MonProjet/
 ├── app.R                    # Script principal Shiny
 ├── rapport.Rmd              # Rapport d’analyse statistique
