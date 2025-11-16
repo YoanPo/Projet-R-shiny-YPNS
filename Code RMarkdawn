@@ -1,0 +1,86 @@
+---
+title: "Rapport DPE automatisé"
+output: html_document
+params:
+  code_postal: 69008
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(readr)
+
+# Mettre ici le chemin exact du fichier CSV (depuis RShiny):
+df <- read_csv("D:/Projet shiny/dpe_export_69008_2025-11-16.csv")
+
+# Filtrage selon le code postal choisi
+df_filtre <- df %>% filter(code_postal_ban == params$code_postal)
+```
+1. Introduction
+
+Ce rapport étudie les performances énergétiques du parc immobilier du code postal : r params$code_postal.
+
+Il inclut :
+
+  - KPI (indicateurs clés)
+  
+  - Visualisations (histogrammes, répartition, corrélation)
+  
+  - Statistiques descriptives
+  
+  - Analyse automatique basée sur les données ADEME
+
+2. KPI principaux
+```{r}
+kpi <- list(
+nb_logements = nrow(df_filtre),
+conso_moy = mean(df_filtre$consommation_energie, na.rm=TRUE),
+surface_moy = mean(df_filtre$surface_habitable_logement, na.rm=TRUE),
+classe_mode = names(sort(table(df_filtre$etiquette_dpe), decreasing = TRUE))[1]
+)
+
+kpi
+```
+
+3. Répartition des classes DPE
+```{r}
+ggplot(df_filtre, aes(x = etiquette_dpe)) +
+geom_bar() +
+labs(
+title = "Répartition des classes énergétiques",
+x = "Classe DPE",
+y = "Nombre de logements"
+)
+```
+
+4. Distribution de la consommation énergétique
+```{r}
+ggplot(df_filtre, aes(x = consommation_energie)) +
+geom_histogram(bins = 30) +
+labs(
+title = "Distribution de la consommation énergétique",
+x = "Consommation (kWh/m²/an)",
+y = "Effectif"
+)
+```
+
+5. Relation Surface – Consommation (corrélation)
+```{r}
+ggplot(df_filtre, aes(x = surface_habitable_logement, y = consommation_energie)) +
+geom_point(alpha = 0.5) +
+geom_smooth(method = "lm") +
+labs(
+title = "Relation entre surface et consommation énergétique",
+x = "Surface du logement (m²)",
+y = "Consommation (kWh/m²/an)"
+)
+```
+
+6. Statistiques descriptives
+```{r}
+summary(df_filtre[, c("consommation_energie", "surface_habitable_logement")])
+```
+
+7. Conclusion
+Cette analyse met en évidence la structure énergétique du parc immobilier du secteur étudié.
+Le document est entièrement automatisé et peut être réutilisé pour n’importe quel code postal.
