@@ -1,6 +1,6 @@
-```{r}
-install.packages("tidyverse")
-```
+#Installer ce packages avant d'executer le code -> install.packages("tidyverse")
+
+
 ---
 title: "Rapport DPE automatisé"
 output: html_document
