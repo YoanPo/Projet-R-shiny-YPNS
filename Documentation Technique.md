@@ -91,8 +91,21 @@ st_transform(4326)
 
 6)Les objets sont retournés au frontend ou exportés dans un rapport .Rmd.
 
-5. Contraintes techniques :
+## 5. Contraintes techniques :
   - API limite → 5000 lignes par requête
   - Format des coordonnées BAN → nécessite projection Lambert 93
   - Données parfois incomplètes
   - Certains champs changent selon millésime ADEME → prévoir gestion des colonnes manquantes (dplyr::mutate(across(..., ~coalesce(...))))
+
+
+## 6. Connexion à l’application
+
+1)Ouvrir l’application Shiny.
+
+2)Sur la page de login :
+  - Identifiant : admin_dpe
+  - Mot de passe : rshiny1
+
+3)Cliquer sur Se connecter.
+
+4)En cas d’erreur, un message rouge s’affiche : “Identifiant ou mot de passe incorrect”.
