@@ -61,21 +61,23 @@ Copier le code
 │   └── schema.drawio         # Schéma architecture Draw.io
 └── README.md                 # Ce fichier
 
- Données et limites :
+ ## Données et limites :
 Source : Données publiques ADEME – DPE existant
+
 Limite maximale : 5000 DPE par requête API
+
 Colonnes disponibles :
-Essentielles : numero_dpe, etiquette_dpe, surface_habitable_logement, date_reception_dpe, code_postal_ban
-Analyse : conso_5_usages_ep, emission_ges_5_usages, annee_construction
-Localisation : coordonnee_cartographique_x_ban, coordonnee_cartographique_y_ban
+  - Essentielles : numero_dpe, etiquette_dpe, surface_habitable_logement, date_reception_dpe, code_postal_ban
+  - Analyse : conso_5_usages_ep, emission_ges_5_usages, annee_construction
+  - Localisation : coordonnee_cartographique_x_ban, coordonnee_cartographique_y_ban
 
- Bonnes pratiques :
-Limiter les périodes ou codes postaux pour ne pas dépasser 5000 DPE
-Vérifier les valeurs manquantes (NA) avant analyse
-Exporter régulièrement les graphiques et CSV pour archivage
+## Bonnes pratiques :
+  - Limiter les périodes ou codes postaux pour ne pas dépasser 5000 DPE
+  - Vérifier les valeurs manquantes (NA) avant analyse
+  - Exporter régulièrement les graphiques et CSV pour archivage
 
- Support :
+## Support :
 Documentation technique disponible dans le dossier doc/ pour les développeurs
 
- Licence :
+## Licence :
 Données publiques ADEME
