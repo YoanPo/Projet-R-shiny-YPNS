@@ -1,0 +1,89 @@
+1. Architecture générale
+
+L'application et les scripts R utilisent une architecture simple en 4 couches :
+
+Frontend (optionnel – Shiny) :
+ - Formulaire : code postal, dates, filtres.
+ - Envoie les paramètres au backend R.
+
+Backend R :
+ - Nettoyage, transformations, modélisation statistique.
+ - Génération de graphiques et objets géospatiaux.
+
+Connecteur API ADEME :
+ - Envoi de requêtes HTTP (GET).
+ - Gestion erreurs + pagination.
+ - Parsing JSON → DataFrame.
+
+Modules analytiques :
+ - Prétraitement (conversion, NA, valeurs aberrantes).
+ - Statistiques descriptives, régression linéaire.
+ - Visualisation ggplot2.
+ - Cartographie Leaflet + sf.
+
+
+
+
+3. Description des modules
+3.1 Connexion API ADEME (REST JSON)
+ - Utilise httr::GET
+ - Construction dynamique des paramètres :
+    - code_postal
+    - date_reception_dpe [DATE_DEBUT TO DATE_FIN]
+    - select (liste des colonnes)
+    - size (max 5000 entrées)
+
+Gestion des erreurs :
+  - Vérification status_code != 200
+  - Stop script en cas d'échec
+
+Parsing :
+
+content <- fromJSON(rawToChar(resp$content), flatten = TRUE)
+df_raw <- content$results
+
+
+
+3.2 Prétraitement et nettoyage
+  - Conversion des types :
+as.numeric(), as.Date()
+
+  - Suppression des valeurs impossibles :
+consommation_energie = ifelse(consommation_energie < 0, NA, consommation_energie)
+
+
+Harmonisation :
+  - etiquette_dpe <- factor(etiquette_dpe, levels = c("A","B","C","D","E","F","G"))
+
+3.3 Analyses statistiques
+  - Histogrammes : geom_histogram()
+  - Boxplots : geom_boxplot()
+  - Régression linéaire :
+model <- lm(consommation_energie ~ surface_habitable_logement)
+summary(model)
+
+3.4 Cartographie (sf + Leaflet) :
+  - Vérification des coordonnées valides
+  - Projection Lambert 93 → WGS84 :
+st_transform(4326)
+
+  - Points sur carte interactive (leaflet::addCircleMarkers)
+
+4. Flux de données (pipeline) :
+
+1)L’utilisateur saisit les paramètres.
+2)Le backend R construit la requête API.
+3)L’API renvoie un JSON → converti en DataFrame.
+4)Nettoyage des NA et valeurs aberrantes.
+5)Génération :
+  - Graphiques (ggplot2)
+  - Régression
+  - Carte interactive (Leaflet)
+
+6)Les objets sont retournés au frontend ou exportés dans un rapport .Rmd.
+
+5. Contraintes techniques :
+  - API limite → 5000 lignes par requête
+  - Format des coordonnées BAN → nécessite projection Lambert 93
+  - Données parfois incomplètes
+  - Certains champs changent selon millésime ADEME → prévoir gestion des colonnes manquantes (dplyr::mutate(across(..., ~coalesce(...))))
