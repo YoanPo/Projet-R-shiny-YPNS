@@ -109,3 +109,23 @@ st_transform(4326)
 3)Cliquer sur Se connecter.
 
 4)En cas d’erreur, un message rouge s’affiche : “Identifiant ou mot de passe incorrect”.
+
+## 7. Librairies utilisés
+
+library(dplyr)   # Manipulation et nettoyage des données
+
+library(ggplot2) # Visualisations statistiques
+
+library(plotly)  # Graphiques interactifs (optionnel)
+
+library(knitr)   # Mise en forme des tableaux
+
+library(sf)      # Gestion des données géospatiales
+
+library(leaflet) # Cartographie interactive
+
+library(httr)    # Requêtes HTTP (API ADEME)
+
+library(jsonlite)# Conversion JSON → R
+
+library(scales)  # Formats et échelles (log, pourcentage, etc.)
