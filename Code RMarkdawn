@@ -1,3 +1,6 @@
+```{r}
+install.packages("tidyverse")
+```
 ---
 title: "Rapport DPE automatisé"
 output: html_document
