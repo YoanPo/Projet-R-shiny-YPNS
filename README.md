@@ -2,23 +2,23 @@
 
 ## Description
 
-Cette application **R/Shiny** permet de **rechercher, analyser et visualiser les Diagnostics de Performance Énergétique (DPE)** à partir des données publiques de l’ADEME.  
-Elle offre une interface intuitive pour filtrer par **code postal et période**, visualiser des **graphiques statistiques**, et localiser les DPE sur une **carte interactive**.
+Cette application R/Shiny permet de rechercher, analyser et visualiser les Diagnostics de Performance Énergétique (DPE) à partir des données publiques de l’ADEME.  
+Elle offre une interface intuitive pour filtrer par code postal et période, visualiser des graphiques statistiques, et localiser les DPE sur une carte interactive.
 
 ---
 
 ## Fonctionnalités principales
 
-- **Recherche DPE** : par date et code postal  
-- **Tableau interactif** : visualisation et export CSV  
-- **KPI (Indicateurs clés)** : nombre de DPE, consommation moyenne, surface moyenne  
-- **Analyses statistiques** :
+- Recherche DPE : par date et code postal  
+- Tableau interactif : visualisation et export CSV  
+- KPI (Indicateurs clés) : nombre de DPE, consommation moyenne, surface moyenne  
+- Analyses statistiques :
   - Histogrammes de consommation  
   - Boxplots par étiquette DPE  
   - Diagrammes à barres  
   - Nuages de points et régressions linéaires  
-- **Cartographie interactive** : localisation des DPE avec popups informatifs  
-- **Exports** : graphiques PNG et données CSV  
+- Cartographie interactive : localisation des DPE avec popups informatifs  
+- Exports : graphiques PNG et données CSV  
 
 ---
 
