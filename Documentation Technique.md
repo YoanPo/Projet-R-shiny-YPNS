@@ -22,13 +22,15 @@ Modules analytiques :
  - Cartographie Leaflet + sf.
 
 ## 2. Architecture du GitHub :
+
 /iut_sd2_rshiny_enedis/
+
 ├── Code RMarkdawn                   
 ├── Description des scripts utilisés              
-├── Documentation fonctionnelle
+├── Documentation fonctionnelle  
 ├── README.md                
-├── Description Technique                    
-    └── schema.drawio         # Schéma architecture Draw.io
+├── Description Technique 
+     └── schema.drawio         # Schéma architecture Draw.io
 
 
 ## 3. Description des modules
