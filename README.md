@@ -49,15 +49,6 @@ Copier le code
 shiny::runApp("app.R")
 Accéder à l’interface via le navigateur à l’URL indiquée par RStudio.
 
- Structure du projet :
-/MonProjet/
-├── app.R                    # Script principal Shiny
-├── rapport.Rmd              # Rapport d’analyse statistique
-├── www/                     # Ressources CSS/images
-├── doc/
-│   ├── documentation_technique.md  # Documentation développeur
-│   └── schema.drawio         # Schéma architecture Draw.io
-└── README.md                 # Ce fichier
 
  ## Données et limites :
 Source : Données publiques ADEME – DPE existant
